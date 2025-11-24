@@ -11,7 +11,7 @@ $db = Database::getInstance()->getConnection();
 $ofertaModel = new Oferta($db);
 $empresaModel = new Empresa($db);
 $filtros = ['busqueda' => $_GET['q'] ?? '', 'empresa' => $_GET['empresa'] ?? '', 'estado' => $_GET['estado'] ?? ''];
-$ofertas = $ofertaModel->getOfertasActivas($filtros, 1, 100);
+$ofertas = $ofertaModel->getOfertasAdmin($filtros, 100, 0);
 $empresas = $empresaModel->listarActivas();
 include __DIR__ . '/../../layout/header_admin.php';
 ?>

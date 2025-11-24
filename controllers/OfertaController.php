@@ -77,7 +77,7 @@ class OfertaController {
             }
             
             // Crear oferta
-            $id_oferta = $this->ofertaModel->create($datos);
+            $id_oferta = $this->ofertaModel->crear($datos);
             
             if ($id_oferta) {
                 // Asociar habilidades si hay

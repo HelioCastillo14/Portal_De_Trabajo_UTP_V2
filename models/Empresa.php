@@ -53,15 +53,15 @@ class Empresa {
         
         $stmt = $this->db->prepare($query);
         
-        $stmt->bindParam(':nombre_legal', $datos['nombre_legal']);
-        $stmt->bindParam(':nombre_comercial', $datos['nombre_comercial'] ?? null);
-        $stmt->bindParam(':logo', $datos['logo'] ?? 'placeholder-logo.png');
-        $stmt->bindParam(':descripcion', $datos['descripcion'] ?? null);
-        $stmt->bindParam(':sector', $datos['sector'] ?? null);
-        $stmt->bindParam(':sitio_web', $datos['sitio_web'] ?? null);
-        $stmt->bindParam(':telefono', $datos['telefono'] ?? null);
-        $stmt->bindParam(':email_contacto', $datos['email_contacto'] ?? null);
-        $stmt->bindParam(':direccion', $datos['direccion'] ?? null);
+        $stmt->bindValue(':nombre_legal', $datos['nombre_legal']);
+        $stmt->bindValue(':nombre_comercial', $datos['nombre_comercial'] ?? null);
+        $stmt->bindValue(':logo', $datos['logo'] ?? 'placeholder-logo.png');
+        $stmt->bindValue(':descripcion', $datos['descripcion'] ?? null);
+        $stmt->bindValue(':sector', $datos['sector'] ?? null);
+        $stmt->bindValue(':sitio_web', $datos['sitio_web'] ?? null);
+        $stmt->bindValue(':telefono', $datos['telefono'] ?? null);
+        $stmt->bindValue(':email_contacto', $datos['email_contacto'] ?? null);
+        $stmt->bindValue(':direccion', $datos['direccion'] ?? null);
         
         $stmt->execute();
         return $this->db->lastInsertId();

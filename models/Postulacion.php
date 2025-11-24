@@ -171,7 +171,7 @@ class Postulacion {
      */
     public function getPostulacionesPorOferta($id_oferta) {
         $query = "SELECT p.*, 
-                  e.nombres, e.apellidos, e.correo_utp, e.carrera, e.cv_ruta, e.foto_perfil
+                  e.nombres as nombres_estudiante, e.apellidos as apellidos_estudiante, e.correo_utp as correo_estudiante, e.carrera, e.cv_ruta, e.foto_perfil
                   FROM postulaciones p
                   INNER JOIN estudiantes e ON p.id_estudiante = e.id_estudiante
                   WHERE p.id_oferta = :id_oferta
@@ -224,9 +224,10 @@ class Postulacion {
      */
     public function listarTodas($filtros = [], $limite = 50, $offset = 0) {
         $query = "SELECT p.*, 
-                  e.nombres, e.apellidos, e.correo_utp, e.carrera,
-                  o.titulo as oferta_titulo,
-                  emp.nombre_comercial as empresa_nombre
+                  e.nombres as nombres_estudiante, e.apellidos as apellidos_estudiante,
+                  e.correo_utp, e.carrera,
+                  o.titulo as titulo_oferta,
+                  emp.nombre_comercial as nombre_empresa
                   FROM postulaciones p
                   INNER JOIN estudiantes e ON p.id_estudiante = e.id_estudiante
                   INNER JOIN ofertas o ON p.id_oferta = o.id_oferta

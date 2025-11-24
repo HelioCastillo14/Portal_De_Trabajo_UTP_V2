@@ -27,10 +27,12 @@ class Oferta {
         $params = [];
         
         // Filtro de búsqueda
+        // Filtro de búsqueda
         if (!empty($filtros['busqueda'])) {
-            $query .= " AND (o.titulo LIKE :busqueda OR o.descripcion LIKE :busqueda)";
+            $query .= " AND (o.titulo LIKE :busqueda_titulo OR o.descripcion LIKE :busqueda_desc)";
             $busqueda = '%' . $filtros['busqueda'] . '%';
-            $params[':busqueda'] = $busqueda;
+            $params[':busqueda_titulo'] = $busqueda;
+            $params[':busqueda_desc'] = $busqueda;
         }
         
         // Filtro por modalidad
@@ -73,6 +75,56 @@ class Oferta {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    /**
+     * Obtener todas las ofertas para administración (con contador de postulaciones)
+     */
+    public function getOfertasAdmin($filtros = [], $limite = 100, $offset = 0) {
+        $query = "SELECT o.*, 
+                  e.nombre_comercial as empresa, 
+                  e.logo as logo,
+                  COUNT(p.id_postulacion) as total_postulaciones
+                  FROM ofertas o
+                  INNER JOIN empresas e ON o.id_empresa = e.id_empresa
+                  LEFT JOIN postulaciones p ON o.id_oferta = p.id_oferta
+                  WHERE 1=1";
+        
+        $params = [];
+        
+        if (!empty($filtros['busqueda'])) {
+            $query .= " AND (o.titulo LIKE :busqueda_titulo OR o.descripcion LIKE :busqueda_desc)";
+            $busqueda = '%' . $filtros['busqueda'] . '%';
+            $params[':busqueda_titulo'] = $busqueda;
+            $params[':busqueda_desc'] = $busqueda;
+        }
+        
+        // Filtro por empresa
+        if (!empty($filtros['empresa']) && is_numeric($filtros['empresa'])) {
+            $query .= " AND o.id_empresa = :empresa";
+            $params[':empresa'] = (int)$filtros['empresa'];
+        }
+        
+        // Filtro por estado
+        if (!empty($filtros['estado'])) {
+            $query .= " AND o.estado = :estado";
+            $params[':estado'] = $filtros['estado'];
+        }
+        
+        $query .= " GROUP BY o.id_oferta
+                    ORDER BY o.fecha_publicacion DESC 
+                    LIMIT :limite OFFSET :offset";
+        
+        $stmt = $this->db->prepare($query);
+        
+        foreach ($params as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
+        
+        $stmt->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     
     /**
      * Contar ofertas activas con filtros
@@ -86,9 +138,10 @@ class Oferta {
         $params = [];
         
         if (!empty($filtros['busqueda'])) {
-            $query .= " AND (o.titulo LIKE :busqueda OR o.descripcion LIKE :busqueda)";
+            $query .= " AND (o.titulo LIKE :busqueda_titulo OR o.descripcion LIKE :busqueda_desc)";
             $busqueda = '%' . $filtros['busqueda'] . '%';
-            $params[':busqueda'] = $busqueda;
+            $params[':busqueda_titulo'] = $busqueda;
+            $params[':busqueda_desc'] = $busqueda;
         }
         
         if (!empty($filtros['modalidad'])) {
@@ -120,6 +173,29 @@ class Oferta {
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['total'] ?? 0;
+    }
+
+    /**
+     * Cambiar estado de una oferta
+     * 
+     * @param int $id ID de la oferta
+     * @param string $nuevo_estado Estado: activa, cerrada, tomada
+     * @return bool True si se cambió correctamente
+     */
+    public function cambiarEstado($id, $nuevo_estado) {
+        $estados_validos = ['activa', 'cerrada', 'tomada'];
+        
+        if (!in_array($nuevo_estado, $estados_validos)) {
+            return false;
+        }
+        
+        $query = "UPDATE ofertas SET estado = :estado WHERE id_oferta = :id";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':estado', $nuevo_estado);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        
+        return $stmt->execute();
     }
     
     /**
