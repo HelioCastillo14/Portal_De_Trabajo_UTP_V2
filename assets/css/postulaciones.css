@@ -1,0 +1,83 @@
+/* ============================================
+   POSTULACIONES.CSS - Estilos para mis postulaciones
+   ============================================ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+   .postulaciones-container {
+    padding: 40px 0;
+}
+
+/* ============================================
+   TARJETA DE POSTULACIÓN
+   ============================================ */
+.postulacion-card {
+    border-radius: 12px;
+    border: 2px solid #E5E7EB;
+    transition: all 0.2s ease;
+}
+
+.postulacion-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--verde-principal);
+}
+
+/* ============================================
+   ESTADOS DE POSTULACIÓN
+   ============================================ */
+.postulacion-estado {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.postulacion-estado.en-revision {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.postulacion-estado.aceptada {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.postulacion-estado.rechazada {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+/* ============================================
+   INFORMACIÓN DE LA POSTULACIÓN
+   ============================================ */
+.postulacion-empresa {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 4px;
+}
+
+.postulacion-puesto {
+    font-size: 14px;
+    color: var(--gris-medio);
+    margin-bottom: 8px;
+}
+
+.postulacion-fecha {
+    font-size: 13px;
+    color: var(--gris-claro);
+}
+
+/* ============================================
+   ESTADO VACÍO (SIN POSTULACIONES)
+   ============================================ */
+.empty-postulaciones {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-postulaciones i {
+    font-size: 64px;
+    color: var(--gris-claro);
+}

@@ -1,0 +1,339 @@
+/* 
+ * OFERTAS.CSS - Estilos para búsqueda y listado de ofertas
+ * Portal de Trabajo UTP
+ */
+
+/* ============================================
+   HERO SECTION - Ofertas
+   ============================================ */
+   .hero-ofertas {
+    background: linear-gradient(135deg, #145A32 0%, #1e8449 100%);
+    padding: 60px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-ofertas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+}
+
+.hero-title-ofertas {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hero-subtitle-ofertas {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+}
+
+/* Search Box - Ofertas */
+.search-box-ofertas {
+    background: white;
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.search-box-ofertas input {
+    border: none;
+    height: 48px;
+    font-size: 15px;
+    padding: 0 20px;
+    color: var(--gris-oscuro);
+}
+
+.search-box-ofertas .btn {
+    height: 48px;
+    padding: 0 28px;
+    border-radius: 8px;
+}
+
+/* ============================================
+   FILTROS STICKY
+   ============================================ */
+.filters {
+    position: sticky;
+    top: 100px;
+    z-index: 999;
+    background: white;
+    border-bottom: 1px solid #E5E7EB;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.filters .dropdown .btn {
+    background: white;
+    border: 2px solid #E5E7EB;
+    color: var(--gris-oscuro);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.filters .dropdown .btn:hover,
+.filters .dropdown .btn:focus {
+    border-color: var(--verde-principal);
+    color: var(--verde-principal);
+    box-shadow: 0 2px 8px rgba(30, 132, 73, 0.1);
+}
+
+.filters .dropdown-menu {
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 4px;
+}
+
+.filters .dropdown-item {
+    padding: 10px 16px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.filters .dropdown-item:hover {
+    background: var(--verde-muy-claro);
+    color: var(--verde-principal);
+}
+
+/* ============================================
+   LAYOUT 2 COLUMNAS
+   ============================================ */
+.jobs-list-container {
+    height: calc(100vh - 300px);
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Job List Card */
+.job-list-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    background: white;
+    margin-bottom: 16px;
+}
+
+.job-list-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 132, 73, 0.1);
+    border-color: var(--verde-principal);
+}
+
+.job-list-card.selected {
+    border-color: var(--verde-principal);
+    background-color: #f8fdf9;
+}
+
+.job-list-card .card-body {
+    padding: 16px;
+}
+
+.job-title-small {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--gris-oscuro);
+    margin-bottom: 4px;
+}
+
+.company-name-small {
+    font-size: 14px;
+    color: var(--gris-claro);
+    margin-bottom: 8px;
+}
+
+/* Job Detail Panel - Sticky */
+.job-detail-panel {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 32px;
+}
+
+.job-title-detail {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.job-description {
+    margin-bottom: 24px;
+}
+
+.job-description h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 12px;
+}
+
+.job-description p,
+.job-description li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gris-medio);
+}
+
+/* ============================================
+   GRID DE OFERTAS (Vista pública)
+   ============================================ */
+.ofertas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.oferta-card {
+    background: white;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.oferta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(30, 132, 73, 0.12);
+    border-color: var(--verde-principal);
+}
+
+/* ============================================
+   PAGINACIÓN
+   ============================================ */
+.pagination {
+    margin-top: 40px;
+}
+
+.pagination .page-link {
+    border: 2px solid #E5E7EB;
+    color: var(--gris-oscuro);
+    padding: 8px 16px;
+    margin: 0 4px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.pagination .page-link:hover {
+    background: var(--verde-muy-claro);
+    border-color: var(--verde-principal);
+    color: var(--verde-principal);
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--verde-principal);
+    border-color: var(--verde-principal);
+    color: white;
+}
+
+.pagination .page-item.disabled .page-link {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: var(--gris-claro);
+    margin-bottom: 16px;
+}
+
+.empty-state h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: var(--gris-medio);
+    margin-bottom: 24px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 991px) {
+    .hero-title-ofertas {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle-ofertas {
+        font-size: 16px;
+    }
+    
+    .filters {
+        top: 80px;
+    }
+    
+    .filters .dropdown .btn {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+    
+    .jobs-list-container {
+        height: auto !important;
+        margin-bottom: 24px;
+    }
+    
+    .job-detail-panel {
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+    
+    .job-title-detail {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ofertas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters .d-flex {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .filters .dropdown {
+        flex-shrink: 0;
+    }
+}

@@ -1,0 +1,108 @@
+/* ============================================
+   ADMIN_EMPRESAS.CSS - Estilos para gestión de empresas
+   ============================================ */
+
+/* ============================================
+   GRID DE EMPRESAS
+   ============================================ */
+   .empresas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* ============================================
+   TARJETA DE EMPRESA
+   ============================================ */
+.empresa-card {
+    border-radius: 12px;
+    border: 2px solid #E5E7EB;
+    background: white;
+    transition: all 0.2s ease;
+    height: 100%;
+}
+
+.empresa-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--verde-principal);
+    transform: translateY(-4px);
+}
+
+/* ============================================
+   LOGO DE EMPRESA
+   ============================================ */
+.empresa-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: #F9FAFB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empresa-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.empresa-logo i {
+    font-size: 32px;
+    color: var(--gris-claro);
+}
+
+/* ============================================
+   INFORMACIÓN DE EMPRESA
+   ============================================ */
+.empresa-nombre {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 4px;
+}
+
+.empresa-sector {
+    font-size: 14px;
+    color: var(--gris-medio);
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   ESTADO DE EMPRESA
+   ============================================ */
+.empresa-estado {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.empresa-estado.activa {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.empresa-estado.inactiva {
+    background: #E5E7EB;
+    color: #6B7280;
+}
+
+/* ============================================
+   FORMULARIO DE EMPRESA
+   ============================================ */
+.form-empresa .form-label {
+    font-weight: 600;
+    color: var(--gris-oscuro);
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETS Y MÓVILES
+   ============================================ */
+@media (max-width: 768px) {
+    .empresas-grid {
+        grid-template-columns: 1fr;
+    }
+}

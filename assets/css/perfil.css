@@ -1,0 +1,121 @@
+/* ============================================
+   PERFIL.CSS - Estilos para perfil de estudiante
+   ============================================ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+   .perfil-container {
+    padding: 40px 0;
+}
+
+/* ============================================
+   TARJETA DE PERFIL
+   ============================================ */
+.perfil-card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================
+   AVATAR
+   ============================================ */
+.perfil-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--verde-muy-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.perfil-avatar i {
+    font-size: 48px;
+    color: var(--verde-principal);
+}
+
+/* ============================================
+   INFORMACIÓN DEL USUARIO
+   ============================================ */
+.perfil-nombre {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 4px;
+}
+
+.perfil-correo {
+    font-size: 14px;
+    color: var(--gris-medio);
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   BARRA DE COMPLETITUD
+   ============================================ */
+.completitud-bar {
+    height: 8px;
+    border-radius: 10px;
+    background: #E5E7EB;
+    overflow: hidden;
+}
+
+.completitud-bar .progress-bar {
+    background: var(--verde-principal);
+}
+
+/* ============================================
+   ZONA DE CARGA DE CV
+   ============================================ */
+.cv-upload-zone {
+    border: 2px dashed #E5E7EB;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.cv-upload-zone:hover {
+    border-color: var(--verde-principal);
+    background: var(--verde-muy-claro);
+}
+
+.cv-upload-zone i {
+    font-size: 48px;
+    color: var(--gris-claro);
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   CV ACTUAL
+   ============================================ */
+.cv-actual {
+    background: #F0FDF4;
+    border: 2px solid #86EFAC;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.cv-actual i {
+    font-size: 40px;
+    color: var(--verde-principal);
+}
+
+/* ============================================
+   RESPONSIVE - TABLETS Y MÓVILES
+   ============================================ */
+@media (max-width: 768px) {
+    .perfil-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .perfil-avatar i {
+        font-size: 40px;
+    }
+}

@@ -1,0 +1,99 @@
+/* ============================================
+   ADMIN_OFERTAS.CSS - Estilos para gestión de ofertas admin
+   ============================================ */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+   .ofertas-admin-container {
+    padding: 32px 0;
+}
+
+/* ============================================
+   FILTROS ADMINISTRATIVOS
+   ============================================ */
+.filtros-admin {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   TABLA DE OFERTAS
+   ============================================ */
+.tabla-ofertas {
+    margin-top: 16px;
+}
+
+.tabla-ofertas th {
+    background: #F9FAFB;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.oferta-titulo {
+    font-weight: 700;
+    color: var(--gris-oscuro);
+}
+
+/* ============================================
+   BADGES DE ESTADO
+   ============================================ */
+.badge-estado {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-estado.activa {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.badge-estado.cerrada {
+    background: #E5E7EB;
+    color: #6B7280;
+}
+
+.badge-estado.tomada {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+/* ============================================
+   FORMULARIO DE OFERTA
+   ============================================ */
+.form-oferta .form-section {
+    margin-bottom: 32px;
+}
+
+.form-oferta .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+/* ============================================
+   SELECTOR DE HABILIDADES
+   ============================================ */
+.habilidades-select {
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETS Y MÓVILES
+   ============================================ */
+@media (max-width: 768px) {
+    .filtros-admin {
+        padding: 16px;
+    }
+}

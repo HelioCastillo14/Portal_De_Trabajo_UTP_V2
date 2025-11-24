@@ -1,0 +1,343 @@
+/* 
+ * HOME.CSS - Estilos para Homepage (index.php)
+ * Portal de Trabajo UTP
+ */
+
+/* ============================================
+   HERO SECTION - Homepage
+   ============================================ */
+   .hero-home {
+    background: linear-gradient(135deg, #E6F5EA 0%, #D1F2E0 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(30, 132, 73, 0.03) 10px,
+        rgba(30, 132, 73, 0.03) 20px
+    );
+    pointer-events: none;
+}
+
+.hero-title-home {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.hero-subtitle-home {
+    font-size: 20px;
+    color: var(--gris-medio);
+    margin-bottom: 32px;
+}
+
+/* Search Box - Homepage */
+.search-box-home {
+    background: white;
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-box-home input {
+    border: none;
+    height: 56px;
+    font-size: 16px;
+    padding: 0 24px;
+}
+
+.search-box-home input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search-box-home .btn {
+    height: 56px;
+    padding: 0 32px;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+/* ============================================
+   ESTADÍSTICAS
+   ============================================ */
+.stats-section {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 16px;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--verde-principal);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--gris-medio);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* ============================================
+   GRID DE OFERTAS RECIENTES
+   ============================================ */
+.ofertas-recientes {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Job Cards - Homepage específico */
+.job-card-home {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 2px solid #E5E7EB;
+    transition: all 0.3s ease;
+    height: 100%;
+    cursor: pointer;
+}
+
+.job-card-home:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(30, 132, 73, 0.15);
+    border-color: var(--verde-principal);
+}
+
+.job-card-home .company-logo {
+    margin-bottom: 16px;
+}
+
+.job-card-home .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.job-card-home .company-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gris-claro);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.job-card-home .job-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--gris-oscuro);
+    margin-bottom: 12px;
+    min-height: 52px;
+}
+
+.job-card-home .job-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gris-medio);
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.job-card-home .job-meta {
+    font-size: 13px;
+    color: var(--gris-claro);
+    margin-bottom: 16px;
+}
+
+.job-card-home .job-meta i {
+    margin-right: 4px;
+}
+
+.job-card-home .salary {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--verde-principal);
+    margin-bottom: 16px;
+}
+
+.job-card-home .btn-details {
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* ============================================
+   BENEFICIOS SECTION
+   ============================================ */
+.beneficios-section {
+    background: #F9FAFB;
+    padding: 80px 0;
+}
+
+.beneficio-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    border: 2px solid #E5E7EB;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.beneficio-card:hover {
+    border-color: var(--verde-principal);
+    box-shadow: 0 8px 24px rgba(30, 132, 73, 0.1);
+    transform: translateY(-4px);
+}
+
+.beneficio-icon {
+    font-size: 48px;
+    color: var(--verde-principal);
+    margin-bottom: 24px;
+}
+
+.beneficio-card h5 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-bottom: 12px;
+}
+
+.beneficio-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gris-medio);
+    margin: 0;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.cta-section {
+    background: linear-gradient(135deg, var(--verde-principal) 0%, #145A32 100%);
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.cta-section p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+}
+
+.cta-section .btn {
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+/* ============================================
+   RESPONSIVE - Homepage
+   ============================================ */
+@media (max-width: 991px) {
+    .hero-title-home {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle-home {
+        font-size: 18px;
+    }
+    
+    .search-box-home input {
+        height: 48px;
+        font-size: 15px;
+    }
+    
+    .search-box-home .btn {
+        height: 48px;
+        padding: 0 24px;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .job-card-home .job-title {
+        font-size: 18px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title-home {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle-home {
+        font-size: 16px;
+    }
+    
+    .stats-section {
+        margin-top: 0;
+    }
+    
+    .stat-item {
+        margin-bottom: 16px;
+    }
+    
+    .ofertas-recientes,
+    .beneficios-section {
+        padding: 60px 0;
+    }
+    
+    .cta-section {
+        padding: 60px 0;
+    }
+    
+    .cta-section h2 {
+        font-size: 28px;
+    }
+}
