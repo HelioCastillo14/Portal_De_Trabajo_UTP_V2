@@ -387,4 +387,26 @@ class Oferta {
         
         return $stmt->execute();
     }
+    /**
+     * Buscar ofertas usando procedimiento almacenado
+     * Busca por título, descripción, habilidades o empresa
+     * 
+     * @param string $termino_busqueda Término de búsqueda
+     * @return array Lista de ofertas encontradas
+     */
+    public function buscarPorRolSP($termino_busqueda) {
+        // Llamar al procedimiento almacenado
+        $query = "CALL sp_buscar_ofertas_por_rol(:termino)";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':termino', $termino_busqueda);
+        $stmt->execute();
+        
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        // Cerrar el cursor para permitir más queries
+        $stmt->closeCursor();
+        
+        return $resultados;
+    }
 }

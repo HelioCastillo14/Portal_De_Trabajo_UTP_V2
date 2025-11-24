@@ -16,6 +16,7 @@ $ofertaModel = new Oferta($db);
 $empresaModel = new Empresa($db);
 
 // Filtros
+// Filtros
 $filtros = [
     'busqueda' => $_GET['q'] ?? '',
     'modalidad' => $_GET['modalidad'] ?? '',
@@ -26,8 +27,38 @@ $filtros = [
 $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 $limite = 12;
 
-$ofertas = $ofertaModel->getOfertasActivas($filtros, $pagina, $limite);
-$total_paginas = $ofertaModel->getTotalPaginas($limite, $filtros);
+// Si hay término de búsqueda, usar procedimiento almacenado
+if (!empty($filtros['busqueda'])) {
+    // Usar STORED PROCEDURE para búsqueda avanzada
+    $ofertas_sp = $ofertaModel->buscarPorRolSP($filtros['busqueda']);
+    
+    // Aplicar filtros adicionales en PHP si es necesario
+    $ofertas = array_filter($ofertas_sp, function($oferta) use ($filtros) {
+        $cumple = true;
+        
+        if (!empty($filtros['modalidad']) && $oferta['modalidad'] !== $filtros['modalidad']) {
+            $cumple = false;
+        }
+        
+        if (!empty($filtros['tipo_empleo']) && $oferta['tipo_empleo'] !== $filtros['tipo_empleo']) {
+            $cumple = false;
+        }
+        
+        return $cumple;
+    });
+    
+    // Paginación manual
+    $total_resultados = count($ofertas);
+    $total_paginas = ceil($total_resultados / $limite);
+    $offset = ($pagina - 1) * $limite;
+    $ofertas = array_slice($ofertas, $offset, $limite);
+    
+} else {
+    // Sin búsqueda, usar método tradicional
+    $ofertas = $ofertaModel->getOfertasActivas($filtros, $pagina, $limite);
+    $total_paginas = $ofertaModel->getTotalPaginas($limite, $filtros);
+}
+
 $empresas_activas = $empresaModel->listarActivas();
 
 include __DIR__ . '/../layout/header.php';
@@ -39,6 +70,11 @@ include __DIR__ . '/../layout/header.php';
         <h1 class="hero-title-empleos">Explora Oportunidades</h1>
         <p class="hero-subtitle-empleos">
             <?php echo count($ofertas); ?> empleos disponibles para estudiantes UTP
+            <?php if (!empty($filtros['busqueda'])): ?>
+                <span class="badge bg-info ms-2">
+                    <i class="bi bi-search"></i> Búsqueda Avanzada con Stored Procedure
+                </span>
+            <?php endif; ?>
         </p>
         
         <!-- Búsqueda -->
