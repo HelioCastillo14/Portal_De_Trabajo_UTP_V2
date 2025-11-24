@@ -1,0 +1,349 @@
+/* ========================================
+   PORTAL DE TRABAJO UTP - CSS GENERAL
+   Variables, Reset y Estilos Globales
+   ======================================== */
+
+/* ========================================
+   VARIABLES CSS (Color System)
+   ======================================== */
+   :root {
+    /* Verdes - Color primario */
+    --verde-principal: #1e8449;
+    --verde-hover: #145A32;
+    --verde-claro: #27ae60;
+    --verde-muy-claro: #E6F5EA;
+    --verde-exito: #10B981;
+    
+    /* Escala de grises */
+    --gris-oscuro: #0A2540;
+    --gris-medio: #4B5563;
+    --gris-texto: #6B7280;
+    --gris-claro: #9CA3AF;
+    --gris-borde: #D1D5DB;
+    
+    /* Badges - Full-time */
+    --badge-fulltime-bg: #FFE8D9;
+    --badge-fulltime-text: #C2410C;
+    
+    /* Badges - Part-time */
+    --badge-parttime-bg: #FEF3C7;
+    --badge-parttime-text: #D97706;
+    
+    /* Badges - Remoto */
+    --badge-remote-bg: #D4F5F5;
+    --badge-remote-text: #0891B2;
+    
+    /* Badges - Presencial */
+    --badge-presencial-bg: #E0E7FF;
+    --badge-presencial-text: #4F46E5;
+    
+    /* Badges - Híbrido */
+    --badge-hibrido-bg: #FDE68A;
+    --badge-hibrido-text: #B45309;
+    
+    /* Badges - Senior */
+    --badge-senior-bg: #D9F5E5;
+    --badge-senior-text: #059669;
+    
+    /* Badges - Mid-level */
+    --badge-mid-bg: #E9D5FF;
+    --badge-mid-text: #7C3AED;
+    
+    /* Badges - Junior */
+    --badge-junior-bg: #DBEAFE;
+    --badge-junior-text: #1E40AF;
+}
+
+/* ========================================
+   RESET Y BASE
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gris-medio);
+    background-color: #f9fafb;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--verde-principal);
+}
+
+/* ========================================
+   SCROLLBAR PERSONALIZADA
+   ======================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gris-borde);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gris-claro);
+}
+
+/* ========================================
+   NAVBAR GLOBAL
+   ======================================== */
+.navbar {
+    height: 100px;
+    padding: 0;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navbar-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--verde-principal);
+    line-height: 1.2;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #333333;
+    margin: 0 16px;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--verde-principal);
+}
+
+/* Responsive navbar */
+@media (max-width: 991px) {
+    .navbar-logo {
+        height: 30px !important;
+    }
+    
+    .navbar-title {
+        font-size: 13px !important;
+    }
+    
+    .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .nav-item .btn-success {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   BOTONES
+   ======================================== */
+.btn-success {
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: var(--verde-hover);
+    border-color: var(--verde-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 132, 73, 0.3);
+}
+
+.btn-primary {
+    background-color: #2557F5;
+    border-color: #2557F5;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1e40af;
+    border-color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 87, 245, 0.3);
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+.badge-custom {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.badge-fulltime {
+    background-color: var(--badge-fulltime-bg);
+    color: var(--badge-fulltime-text);
+}
+
+.badge-parttime {
+    background-color: var(--badge-parttime-bg);
+    color: var(--badge-parttime-text);
+}
+
+.badge-remote {
+    background-color: var(--badge-remote-bg);
+    color: var(--badge-remote-text);
+}
+
+.badge-presencial {
+    background-color: var(--badge-presencial-bg);
+    color: var(--badge-presencial-text);
+}
+
+.badge-hibrido {
+    background-color: var(--badge-hibrido-bg);
+    color: var(--badge-hibrido-text);
+}
+
+.badge-junior {
+    background-color: var(--badge-junior-bg);
+    color: var(--badge-junior-text);
+}
+
+.badge-mid {
+    background-color: var(--badge-mid-bg);
+    color: var(--badge-mid-text);
+}
+
+.badge-senior {
+    background-color: var(--badge-senior-bg);
+    color: var(--badge-senior-text);
+}
+
+/* Badge de estado (punto) */
+.badge-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* ========================================
+   LOGOS DE EMPRESA (ESTANDARIZADOS)
+   ======================================== */
+/* VERSIÓN GRANDE (Homepage) */
+.company-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.company-logo i {
+    font-size: 24px;
+    color: var(--verde-principal);
+    background-color: var(--verde-muy-claro);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* VERSIÓN PEQUEÑA (Lista) */
+.company-logo-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.company-logo-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.company-logo-small i {
+    font-size: 20px;
+    color: var(--verde-principal);
+    background-color: var(--verde-muy-claro);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+    background-color: #f9fafb;
+    padding: 40px 0 20px;
+    margin-top: 80px;
+    border-top: 1px solid var(--gris-borde);
+}
+
+/* ========================================
+   UTILIDADES
+   ======================================== */
+.text-verde {
+    color: var(--verde-principal);
+}
+
+.bg-verde-claro {
+    background-color: var(--verde-muy-claro);
+}
