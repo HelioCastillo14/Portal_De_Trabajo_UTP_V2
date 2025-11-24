@@ -145,8 +145,8 @@ class Postulacion {
      */
     public function getPostulacionesEstudiante($id_estudiante, $limite = 10, $offset = 0) {
         $query = "SELECT p.*, 
-                  o.titulo, o.modalidad, o.tipo_empleo, o.ubicacion, o.estado as estado_oferta,
-                  e.nombre_comercial as empresa, e.logo as empresa_logo
+                  o.titulo as titulo_oferta, o.modalidad, o.tipo_empleo, o.ubicacion, o.estado as estado_oferta,
+                  e.nombre_comercial as nombre_empresa, e.logo
                   FROM postulaciones p
                   INNER JOIN ofertas o ON p.id_oferta = o.id_oferta
                   INNER JOIN empresas e ON o.id_empresa = e.id_empresa

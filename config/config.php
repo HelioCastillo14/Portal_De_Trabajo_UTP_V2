@@ -58,7 +58,7 @@ define('NOTIFICATION_LIMIT', 20);       // Notificaciones a mostrar
 // CATÁLOGO DE CARRERAS UTP
 // ============================================
 
-$GLOBALS['carreras_utp'] = [
+define('CARRERAS_UTP', [
     'Ingeniería en Sistemas Computacionales',
     'Licenciatura en Desarrollo de Software',
     'Ingeniería en Electrónica y Telecomunicaciones',
@@ -74,7 +74,7 @@ $GLOBALS['carreras_utp'] = [
     'Ingeniería Ambiental',
     'Licenciatura en Diseño Gráfico',
     'Otra'
-];
+]);
 
 /**
  * Obtener lista de carreras UTP
@@ -82,7 +82,7 @@ $GLOBALS['carreras_utp'] = [
  * @return array Lista de carreras
  */
 function getCarreras() {
-    return $GLOBALS['carreras_utp'];
+    return CARRERAS_UTP;
 }
 
 // ============================================

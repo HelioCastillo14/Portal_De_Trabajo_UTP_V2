@@ -34,12 +34,12 @@ class Notificacion {
         
         $stmt = $this->db->prepare($query);
         
-        $stmt->bindParam(':tipo_usuario', $datos['tipo_usuario']);
-        $stmt->bindParam(':id_usuario', $datos['id_usuario']);
-        $stmt->bindParam(':titulo', $datos['titulo']);
-        $stmt->bindParam(':mensaje', $datos['mensaje']);
-        $stmt->bindParam(':tipo', $datos['tipo']);
-        $stmt->bindParam(':id_relacionado', $datos['id_relacionado'] ?? null);
+        $stmt->bindValue(':tipo_usuario', $datos['tipo_usuario']);
+        $stmt->bindValue(':id_usuario', $datos['id_usuario']);
+        $stmt->bindValue(':titulo', $datos['titulo']);
+        $stmt->bindValue(':mensaje', $datos['mensaje']);
+        $stmt->bindValue(':tipo', $datos['tipo']);
+        $stmt->bindValue(':id_relacionado', $datos['id_relacionado'] ?? null);
         
         $stmt->execute();
         return $this->db->lastInsertId();
