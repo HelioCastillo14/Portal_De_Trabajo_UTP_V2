@@ -67,11 +67,11 @@ class Estudiante {
         
         $stmt = $this->db->prepare($query);
         
-        $stmt->bindParam(':correo', $datos['correo_utp']);
-        $stmt->bindParam(':nombres', $datos['nombres']);
-        $stmt->bindParam(':apellidos', $datos['apellidos']);
-        $stmt->bindParam(':carrera', $datos['carrera'] ?? null);
-        $stmt->bindParam(':descripcion', $datos['descripcion_perfil'] ?? null);
+        $stmt->bindValue(':correo', $datos['correo_utp']);
+        $stmt->bindValue(':nombres', $datos['nombres']);
+        $stmt->bindValue(':apellidos', $datos['apellidos']);
+        $stmt->bindValue(':carrera', $datos['carrera'] ?? null);
+        $stmt->bindValue(':descripcion', $datos['descripcion_perfil'] ?? null);
         
         $stmt->execute();
         return $this->db->lastInsertId();

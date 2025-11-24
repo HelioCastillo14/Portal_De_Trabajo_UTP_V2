@@ -67,14 +67,14 @@ function verificarSesion($rol_requerido) {
     // Verificar que exista sesión activa
     if (!isset($_SESSION['tipo_usuario']) || !isset($_SESSION['id_usuario'])) {
         $_SESSION['error'] = 'Debe iniciar sesión para acceder a esta página';
-        header('Location: /Proyecto_Portal_De_Trabajo_UTP/index.php');
+        header('Location: /Portal_De_Trabajo_UTP_V2/index.php');
         exit();
     }
     
     // Verificar que el rol coincida
     if ($_SESSION['tipo_usuario'] !== $rol_requerido) {
         $_SESSION['error'] = 'No tiene permisos para acceder a esta página';
-        header('Location: /Proyecto_Portal_De_Trabajo_UTP/index.php');
+        header('Location: /Portal_De_Trabajo_UTP_V2/index.php');
         exit();
     }
     
@@ -82,7 +82,7 @@ function verificarSesion($rol_requerido) {
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1800)) {
         cerrarSesion();
         $_SESSION['error'] = 'Su sesión ha expirado por inactividad';
-        header('Location: /Proyecto_Portal_De_Trabajo_UTP/index.php');
+        header('Location: /Portal_De_Trabajo_UTP_V2/index.php');
         exit();
     }
     
@@ -185,14 +185,14 @@ function esCorreoUTP($correo) {
  */
 function redirigirSegunRol() {
     if (!estaAutenticado()) {
-        header('Location: /Proyecto_Portal_De_Trabajo_UTP/index.php');
+        header('Location: /Portal_De_Trabajo_UTP_V2/index.php');
         exit();
     }
     
     if ($_SESSION['tipo_usuario'] === 'estudiante') {
-        header('Location: /Proyecto_Portal_De_Trabajo_UTP/views/estudiante/dashboard.php');
+        header('Location: /Portal_De_Trabajo_UTP_V2/views/estudiante/dashboard.php');
     } else if ($_SESSION['tipo_usuario'] === 'admin') {
-        header('Location: /Proyecto_Portal_De_Trabajo_UTP/views/admin/dashboard.php');
+        header('Location: /Portal_De_Trabajo_UTP_V2/views/admin/dashboard.php');
     }
     exit();
 }

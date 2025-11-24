@@ -12,7 +12,7 @@
 // CONFIGURACIÓN GENERAL
 // ============================================
 
-define('BASE_URL', 'http://localhost/Proyecto_Portal_De_Trabajo_UTP');
+define('BASE_URL', 'http://localhost/Portal_De_Trabajo_UTP_V2');
 define('SITE_NAME', 'Portal de Trabajo UTP');
 define('SITE_VERSION', '1.0');
 

@@ -96,7 +96,7 @@ include __DIR__ . '/views/layout/header.php';
                                 <!-- Logo y estado -->
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <div class="company-logo">
-                                        <?php if ($oferta['logo'] && $oferta['logo'] !== 'placeholder-logo.png'): ?>
+                                        <?php $logo = $oferta['logo'] ?? $oferta['empresa_logo'] ?? null; if ($logo && $logo !== 'placeholder-logo.png'): ?>
                                             <img src="<?php echo BASE_URL; ?>/assets/images/logos/<?php echo htmlspecialchars($oferta['logo']); ?>" 
                                                  alt="<?php echo htmlspecialchars($oferta['empresa']); ?>">
                                         <?php else: ?>

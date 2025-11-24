@@ -38,15 +38,15 @@ class Auditoria {
             
             $stmt = $this->db->prepare($query);
             
-            $stmt->bindParam(':tipo_usuario', $datos['tipo_usuario']);
-            $stmt->bindParam(':id_usuario', $datos['id_usuario']);
-            $stmt->bindParam(':accion', $datos['accion']);
-            $stmt->bindParam(':tabla_afectada', $datos['tabla_afectada'] ?? null);
-            $stmt->bindParam(':id_registro_afectado', $datos['id_registro_afectado'] ?? null);
-            $stmt->bindParam(':datos_anteriores', $datos['datos_anteriores'] ?? null);
-            $stmt->bindParam(':datos_nuevos', $datos['datos_nuevos'] ?? null);
-            $stmt->bindParam(':ip_address', $datos['ip_address'] ?? null);
-            $stmt->bindParam(':user_agent', $datos['user_agent'] ?? null);
+            $stmt->bindValue(':tipo_usuario', $datos['tipo_usuario']);
+            $stmt->bindValue(':id_usuario', $datos['id_usuario']);
+            $stmt->bindValue(':accion', $datos['accion']);
+            $stmt->bindValue(':tabla_afectada', $datos['tabla_afectada'] ?? null);
+            $stmt->bindValue(':id_registro_afectado', $datos['id_registro_afectado'] ?? null);
+            $stmt->bindValue(':datos_anteriores', $datos['datos_anteriores'] ?? null);
+            $stmt->bindValue(':datos_nuevos', $datos['datos_nuevos'] ?? null);
+            $stmt->bindValue(':ip_address', $datos['ip_address'] ?? null);
+            $stmt->bindValue(':user_agent', $datos['user_agent'] ?? null);
             
             $stmt->execute();
             return $this->db->lastInsertId();
